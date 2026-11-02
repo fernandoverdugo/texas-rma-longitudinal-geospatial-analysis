@@ -4,6 +4,8 @@ A Python longitudinal and geospatial analytics project examining how **synthetic
 
 Rather than treating the map as a static dashboard, this project centers **time as the primary analytical dimension**: statewide growth, geographic expansion, city trajectories, ZIP persistence, and changing country-of-origin composition.
 
+[**View the live interactive map**](https://fernandoverdugo.github.io/texas-rma-longitudinal-geospatial-analysis/)
+
 > **Portfolio dataset:** All program values are synthetic and intentionally perturbed. The project demonstrates analytical methods and software workflow rather than reporting operational results.
 
 ![Statewide synthetic enrollment trend](assets/statewide_enrollment_trend.svg)
@@ -175,6 +177,8 @@ Then open `http://localhost:8000`.
 The repository uses aggregate synthetic portfolio data only. No client-level or personally identifiable information is included. See the [data dictionary](data/README.md) for field definitions, synthetic-data treatment, derived outputs, and interpretation notes.
 
 ## GitHub Pages
+
+[**Open the live interactive map**](https://fernandoverdugo.github.io/texas-rma-longitudinal-geospatial-analysis/)
 
 GitHub Actions runs the data-quality checks, rebuilds the analysis and interactive application, uploads the generated `docs` directory as a Pages artifact, and deploys it. The generated map HTML does not need to be stored as a large source artifact in Git history.
 
