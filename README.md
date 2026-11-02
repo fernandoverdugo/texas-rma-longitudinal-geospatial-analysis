@@ -8,8 +8,6 @@ Rather than treating the map as a static dashboard, this project centers **time 
 
 > **Portfolio dataset:** All program values are synthetic and intentionally perturbed. The project demonstrates analytical methods and software workflow rather than reporting operational results.
 
-![Statewide synthetic enrollment trend](assets/statewide_enrollment_trend.svg)
-
 ## Why this project
 
 The analysis asks five practical questions:
