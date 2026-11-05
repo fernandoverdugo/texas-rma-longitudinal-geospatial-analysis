@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -99,6 +100,52 @@ def main():
         .sort_values(["cumulative_enrollment", "zip_code"], ascending=[False, True])
     )
     persistence.to_csv(OUT / "zip_persistence.csv", index=False)
+
+    first_year = int(statewide["fiscal_year"].min())
+    last_year = int(statewide["fiscal_year"].max())
+    first_row = statewide.loc[statewide["fiscal_year"] == first_year].iloc[0]
+    last_row = statewide.loc[statewide["fiscal_year"] == last_year].iloc[0]
+    last_city = (
+        city_year[city_year["fiscal_year"] == last_year]
+        .sort_values("total_enrollment", ascending=False)
+        .iloc[0]
+    )
+    last_country = (
+        country_year[country_year["fiscal_year"] == last_year]
+        .sort_values("enrollment", ascending=False)
+        .iloc[0]
+    )
+    summary = {
+        "period": {"first_fiscal_year": first_year, "last_fiscal_year": last_year},
+        "panel": {
+            "zip_codes": int(zip_year["zip_code"].nunique()),
+            "years": int(zip_year["fiscal_year"].nunique()),
+            "rows": int(len(zip_year)),
+        },
+        "statewide_change": {
+            "first_year_enrollment": int(first_row["total_enrollment"]),
+            "last_year_enrollment": int(last_row["total_enrollment"]),
+            "percent_change": round(
+                (float(last_row["total_enrollment"]) / float(first_row["total_enrollment"]) - 1) * 100,
+                1,
+            ),
+            "first_year_active_zip_codes": int(first_row["active_zip_codes"]),
+            "last_year_active_zip_codes": int(last_row["active_zip_codes"]),
+            "first_year_active_counties": int(first_row["active_counties"]),
+            "last_year_active_counties": int(last_row["active_counties"]),
+        },
+        "latest_year_leaders": {
+            "city": str(last_city["city"]),
+            "city_enrollment": int(last_city["total_enrollment"]),
+            "country": str(last_country["country"]),
+            "country_enrollment": int(last_country["enrollment"]),
+        },
+        "interpretation": "Synthetic aggregate portfolio data; longitudinal and geographic patterns are descriptive, not causal or operational results.",
+    }
+    (OUT / "project_summary.json").write_text(
+        json.dumps(summary, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     plt.figure(figsize=(8, 5))
     plt.plot(statewide["fiscal_year"], statewide["total_enrollment"], marker="o")
