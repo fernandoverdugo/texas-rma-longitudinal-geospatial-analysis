@@ -138,7 +138,6 @@ def main():
             "city": str(last_city["city"]),
             "city_enrollment": int(last_city["total_enrollment"]),
             "country": str(last_country["country"]),
-            "country_enrollment": int(last_country["enrollment"]),
         },
         "interpretation": "Synthetic aggregate portfolio data; longitudinal and geographic patterns are descriptive, not causal or operational results.",
     }
