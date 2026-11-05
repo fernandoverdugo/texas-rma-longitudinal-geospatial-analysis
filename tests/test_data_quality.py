@@ -134,3 +134,40 @@ def test_location_labels_are_present():
     assert country[["city", "county", "country"]].notna().all().all()
     assert (panel["city"].str.strip() != "").all()
     assert (panel["county"].str.strip() != "").all()
+
+def test_project_summary_matches_source_data():
+    summary = json.loads((DATA / "processed" / "project_summary.json").read_text())
+    panel = load_panel()
+    country = load_country()
+
+    first_year = int(panel["fiscal_year"].min())
+    last_year = int(panel["fiscal_year"].max())
+    first = panel[panel["fiscal_year"] == first_year]
+    last = panel[panel["fiscal_year"] == last_year]
+
+    assert summary["period"] == {
+        "first_fiscal_year": first_year,
+        "last_fiscal_year": last_year,
+    }
+    assert summary["panel"]["zip_codes"] == panel["zip_code"].nunique()
+    assert summary["panel"]["years"] == panel["fiscal_year"].nunique()
+    assert summary["panel"]["rows"] == len(panel)
+    assert summary["statewide_change"]["first_year_enrollment"] == int(first["total_enrollment"].sum())
+    assert summary["statewide_change"]["last_year_enrollment"] == int(last["total_enrollment"].sum())
+    assert summary["statewide_change"]["first_year_active_zip_codes"] == int((first["total_enrollment"] > 0).sum())
+    assert summary["statewide_change"]["last_year_active_zip_codes"] == int((last["total_enrollment"] > 0).sum())
+    assert summary["statewide_change"]["first_year_active_counties"] == first.loc[first["total_enrollment"] > 0, "county"].nunique()
+    assert summary["statewide_change"]["last_year_active_counties"] == last.loc[last["total_enrollment"] > 0, "county"].nunique()
+
+    latest_city = (
+        last.groupby("city")["total_enrollment"].sum().sort_values(ascending=False)
+    )
+    latest_country = (
+        country[country["fiscal_year"] == last_year]
+        .groupby("country")["enrollment"]
+        .sum()
+        .sort_values(ascending=False)
+    )
+    assert summary["latest_year_leaders"]["city"] == latest_city.index[0]
+    assert summary["latest_year_leaders"]["city_enrollment"] == int(latest_city.iloc[0])
+    assert summary["latest_year_leaders"]["country"] == latest_country.index[0]
