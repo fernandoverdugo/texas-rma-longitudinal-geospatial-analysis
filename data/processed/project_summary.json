@@ -1,0 +1,26 @@
+{
+  "period": {
+    "first_fiscal_year": 2019,
+    "last_fiscal_year": 2024
+  },
+  "panel": {
+    "zip_codes": 695,
+    "years": 6,
+    "rows": 4170
+  },
+  "statewide_change": {
+    "first_year_enrollment": 921,
+    "last_year_enrollment": 29892,
+    "percent_change": 3145.6,
+    "first_year_active_zip_codes": 196,
+    "last_year_active_zip_codes": 695,
+    "first_year_active_counties": 32,
+    "last_year_active_counties": 101
+  },
+  "latest_year_leaders": {
+    "city": "Houston",
+    "city_enrollment": 12754,
+    "country": "Cuba"
+  },
+  "interpretation": "Synthetic aggregate portfolio data; longitudinal and geographic patterns are descriptive, not causal or operational results."
+}
