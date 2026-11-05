@@ -60,6 +60,7 @@ Running `python scripts/run_pipeline.py` creates the following derived files und
 | `top_countries_by_year.csv` | Top country-of-origin rankings for each fiscal year. |
 | `country_concentration.csv` | HHI, leading-country share, top-five share, and number of represented countries. |
 | `zip_persistence.csv` | First/last active year, years active, and cumulative enrollment by ZIP. |
+| `project_summary.json` | Compact machine-readable summary of panel size, statewide change, geographic expansion, and latest-year leaders. |
 
 ## Interpretation notes
 
