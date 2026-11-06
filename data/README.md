@@ -1,10 +1,10 @@
 # Data Dictionary
 
-This repository uses a **synthetic longitudinal portfolio dataset** modeled on Refugee Medical Assistance program-administration patterns. All program counts are intentionally perturbed and are not intended to reproduce operational totals or client-level records. No personally identifiable information is included.
+This repository uses a **synthetic longitudinal dataset** modeled on Refugee Medical Assistance program-administration patterns. All program counts are intentionally perturbed and are not intended to reproduce operational totals or client-level records. No personally identifiable information is included.
 
 ## Synthetic-data treatment
 
-The portfolio data are perturbed at the **ZIP × country × fiscal-year** level using a deterministic random process. The treatment preserves the analytical structure needed for longitudinal analysis while changing the underlying counts:
+The synthetic data are perturbed at the **ZIP × country × fiscal-year** level using a deterministic random process. The treatment preserves the analytical structure needed for longitudinal analysis while changing the underlying counts:
 
 - fiscal-year coverage remains FY2019–FY2024;
 - the same 695 ZIP geographies are retained;
@@ -12,7 +12,7 @@ The portfolio data are perturbed at the **ZIP × country × fiscal-year** level 
 - nonzero country counts are perturbed rather than copied exactly;
 - ZIP totals, dominant-country labels, year-over-year change, FY2019 comparisons, cumulative enrollment, rankings, and concentration measures are recomputed from the perturbed country-level data.
 
-The dataset should therefore be interpreted as a **portfolio demonstration of analytical methods**, not as an operational report.
+The dataset should therefore be interpreted as a **methodological demonstration**, not as an operational report.
 
 ## `rma_zip_year.csv`
 
