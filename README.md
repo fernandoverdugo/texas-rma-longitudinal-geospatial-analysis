@@ -8,7 +8,7 @@ Rather than treating the map as a static dashboard, this project centers **time 
 
 ![Statewide synthetic RMA enrollment trend](assets/statewide_enrollment_trend.svg)
 
-> **Portfolio dataset:** All program values are synthetic and intentionally perturbed. The project demonstrates analytical methods and software workflow rather than reporting operational results.
+> **Synthetic dataset:** All program values are synthetic and intentionally perturbed. The project demonstrates analytical methods and software workflow rather than reporting operational results.
 
 ## Why this project
 
@@ -22,14 +22,14 @@ The analysis asks five practical questions:
 
 ## Key findings
 
-These findings describe the **synthetic portfolio dataset**:
+These findings describe the **synthetic project dataset**:
 
 - Statewide enrollment increases from **921 in FY2019** to **29,892 in FY2024**, an increase of approximately **3,146%** across the six-year period.
 - Geographic coverage expands from **196 active ZIP codes / 32 counties** to **695 ZIP codes / 101 counties**.
 - **Houston** is the largest FY2024 city in the synthetic dataset with **12,754** enrollments.
 - **Cuba** is the largest FY2024 country-of-origin group, accounting for approximately **86.5%** of statewide enrollment; the concentration analysis makes this dominance explicit rather than treating raw counts alone as the story.
 
-## Portfolio highlights
+## Project highlights
 
 - Complete **695-ZIP × 6-year panel** for FY2019–FY2024
 - Long-format ZIP-country-year demographic dataset
@@ -52,9 +52,9 @@ These findings describe the **synthetic portfolio dataset**:
 
 The synthetic data show statewide enrollment expanding from **921 in FY2019 to 29,892 in FY2024**, while the active geographic footprint grows from **196 ZIP codes / 32 counties to 695 ZIP codes / 101 counties**. A program analyst could use that combination of volume growth and geographic expansion to distinguish two different operational questions: whether demand is simply increasing in existing service areas or whether services may also need to reach new communities.
 
-The city, ZIP-persistence, and country-composition views then help identify where growth is sustained, newly emerging, or highly concentrated. These results are descriptive planning signals only: because the portfolio data are synthetic and aggregate, they do not estimate individual need, eligibility, causation, or future enrollment.
+The city, ZIP-persistence, and country-composition views then help identify where growth is sustained, newly emerging, or highly concentrated. These results are descriptive planning signals only: because the project data are synthetic and aggregate, they do not estimate individual need, eligibility, causation, or future enrollment.
 
-## Skills demonstrated
+## Methods and tools
 
 `Python` · `pandas` · `NumPy` · `Leaflet` · `GeoJSON` · `Matplotlib` · `Jupyter` · `pytest` · `GitHub Actions` · `longitudinal analysis` · `demographic analysis` · `geospatial analytics` · `data validation` · `data visualization`
 
@@ -182,7 +182,7 @@ Then open `http://localhost:8000`.
 
 ## Data
 
-The repository uses aggregate synthetic portfolio data only. No client-level or personally identifiable information is included. See the [data dictionary](data/README.md) for field definitions, synthetic-data treatment, derived outputs, and interpretation notes.
+The repository uses aggregate synthetic project data only. No client-level or personally identifiable information is included. See the [data dictionary](data/README.md) for field definitions, synthetic-data treatment, derived outputs, and interpretation notes.
 
 ## GitHub Pages
 
