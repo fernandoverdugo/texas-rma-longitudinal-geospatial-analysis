@@ -8,7 +8,7 @@ Rather than treating the map as a static dashboard, this project centers **time 
 
 ![Statewide synthetic RMA enrollment trend](assets/statewide_enrollment_trend.svg)
 
-> **Synthetic dataset:** All program values are synthetic and intentionally perturbed. The project demonstrates analytical methods and software workflow rather than reporting operational results.
+> **Synthetic dataset:** All program values are synthetic and intentionally perturbed. The project focuses on analytical methods and software workflow rather than reporting operational results.
 
 ## Why this project
 
