@@ -69,7 +69,7 @@ The city, ZIP-persistence, and country-composition views then help identify wher
 │   ├── geometry/
 │   │   └── rma_zip_geometries_part_*.geojson
 │   ├── processed/
-│   │   └── project_summary.json    # compact validated review artifact
+│   │   └── project_summary.json    # compact validated project summary
 │   ├── rma_zip_country_year.csv
 │   ├── rma_zip_year.csv
 │   └── README.md
